@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>House Price Prediction System</title>
+    <style>
+        body, h2, h3, form {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #f1f1f1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+        h2 {
+            font-size: 2.4rem;
+            margin-bottom: 25px;
+            color: #00f5c0;
+            text-align: center;
+        }
+        form {
+            background: rgba(255, 255, 255, 0.06);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            padding: 30px;
+            width: 70%;
+            max-width: 500px;
+        }
+        label {
+            font-size: 1rem;
+            margin-top: 15px;
+            display: block;
+            color: #f1f1f1;
+        }
+        input[type="text"] {
+            width: 93%;
+            padding: 10px 14px;
+            margin-top: 6px;
+            border: none;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #f1f1f1;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+        input[type="text"]:focus {
+            outline: none;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid #00f5c0;
+        }
+        input[type="submit"] {
+            background-color: #00f5c0;
+            color: #121212;
+            border: none;
+            padding: 14px 22px;
+            border-radius: 14px;
+            font-size: 1.05rem;
+            margin-top: 25px;
+            cursor: pointer;
+            width: 100%;
+            transition: background-color 0.3s ease;
+        }
+        input[type="submit"]:hover {
+            background-color: #66ffe8;
+        }
+        h3 {
+            margin-top: 30px;
+            font-size: 1.6rem;
+            color: #FFD166;
+            text-align: center;
+        }
+        input, form, input[type="submit"] {
+            transition: all 0.3s ease-in-out;
+        }
+
+        input[type="submit"] {
+            background-color: #00f5c0;
+            color: #121212;
+            border: none;
+            padding: 14px 22px;
+            border-radius: 14px;
+            font-size: 1.05rem;
+            margin-top: 25px;
+            cursor: pointer;
+            width: 100%;
+            box-shadow: 0 0 10px #00f5c0, 0 0 20px #00f5c0 inset;
+            transition: all 0.4s ease;
+}
+
+    input[type="submit"]:hover {
+        background-color: #66ffe8;
+        box-shadow: 0 0 20px #66ffe8, 0 0 30px #66ffe8, 0 0 40px #66ffe8;
+        transform: scale(1.03);
+    }
+
+    </style>
+    
+</head>
+<body>
+    <h2>Boston House Pricing Prediction</h2>
+    <form action="/predict" method="post">
+        <input type="text" name="CRIM" required placeholder="Enter CRIM value"><br>
+        <input type="text" name="ZN" required placeholder="Enter ZN value"><br>  
+        <input type="text" name="INDUS" required placeholder="Enter INDUS value"><br>
+        <input type="text" name="CHAS" required placeholder="Enter CHAS value"><br>
+        <input type="text" name="NOX" required placeholder="Enter NOX value"><br>
+        <input type="text" name="RM" required placeholder="Enter RM value"><br>
+        <input type="text" name="AGE" required placeholder="Enter AGE value"><br>
+        <input type="text" name="DIS" required placeholder="Enter DIS value"><br>
+        <input type="text" name="RAD" required placeholder="Enter RAD value"><br>
+        <input type="text" name="TAX" required placeholder="Enter TAX value"><br>
+        <input type="text" name="PTRATIO" required placeholder="Enter PTRATIO value"><br>
+        <input type="text" name="B" required placeholder="Enter B value"><br>
+        <input type="text" name="LSTAT" required placeholder="Enter LSTAT value"><br>
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction_text %}
+        <h3>{{ prediction_text }}</h3>
+    {% endif %}
+
+</body>
+</html>
